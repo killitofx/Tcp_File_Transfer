@@ -6,8 +6,11 @@ import time
 # 初始化
 local_ip = (gethostbyname(getfqdn(gethostname())))
 ipa = input("请输入服务器的机器号")
-ip = (gethostbyname(getfqdn(gethostname())))
-HOST = ip.split(".")[0] + '.' + ip.split(".")[1] + '.' + ip.split(".")[2] + '.' + ipa
+if '.' in ipa:
+     HOST = ipa
+else:
+     ip = (gethostbyname(getfqdn(gethostname())))
+     HOST = ip.split(".")[0] + '.' + ip.split(".")[1] + '.' + ip.split(".")[2] + '.' + ipa
 print("ip:",HOST)
 
 
